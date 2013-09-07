@@ -162,41 +162,41 @@ build = (callback) ->
             server_watch = spawn 'coffee', ['-cw', '-o', dir.server_scripts.gen, dir.server_scripts.src]
             server_watch.stdout.on 'data', (data) -> console.log data.toString().trim()
 
-        # # create views directory
-        # exec "mkdir -p '#{dir.views.gen}'", (err) ->
-        #     onError err 
-        #     exec "rsync -av '#{dir.views.src}' '#{dir.views.gen}'", (err) ->
-        #         onError err
-        #         log.print log.CREATE, dir.views.gen
+        # create views directory
+        exec "mkdir -p '#{dir.views.gen}'", (err) ->
+            onError err 
+            exec "rsync -av '#{dir.views.src}' '#{dir.views.gen}'", (err) ->
+                onError err
+                log.print log.CREATE, dir.views.gen
 
-        # # create assets directory
-        # exec "mkdir -p '#{dir.assets.gen}'", (err) ->
-        #     onError err
-        #     log.print log.CREATE, dir.assets.gen
-        #     # copy assets (excluding stylesheets)
-        #     exec "rsync -av --exclude='#{dir.stylesheets.name}' '#{dir.assets.src}' '#{dir.assets.gen}'", (err) ->
-        #         onError err
-        #         log.print log.CREATE, dir.assets.gen
+        # create assets directory
+        exec "mkdir -p '#{dir.assets.gen}'", (err) ->
+            onError err
+            log.print log.CREATE, dir.assets.gen
+            # copy assets (excluding stylesheets)
+            exec "rsync -av --exclude='#{dir.stylesheets.name}' '#{dir.assets.src}' '#{dir.assets.gen}'", (err) ->
+                onError err
+                log.print log.CREATE, dir.assets.gen
 
-        #     # create scripts directory
-        #     exec "cp -r '#{dir.lib.src}' '#{dir.lib.gen}'", (err) ->
-        #         onError err
-        #         log.print log.COPY, dir.lib.gen
+            # create scripts directory
+            exec "cp -r '#{dir.lib.src}' '#{dir.lib.gen}'", (err) ->
+                onError err
+                log.print log.COPY, dir.lib.gen
 
-        #     # compiles stylus
-        #     exec "mkdir -p '#{dir.stylesheets.gen}'", (err) ->
-        #         onError err
-        #         exec "#{module.stylus} '#{dir.stylesheets.gen}' '#{dir.stylesheets.src}' --use #{module.nib}", (err, stdout, stderr) ->
-        #             onError err
-        #             log.print log.COMPILE, dir.stylesheets.gen
-        #             console.log stdout + stderr
+            # compiles stylus
+            exec "mkdir -p '#{dir.stylesheets.gen}'", (err) ->
+                onError err
+                exec "#{module.stylus} '#{dir.stylesheets.gen}' '#{dir.stylesheets.src}' --use #{module.nib}", (err, stdout, stderr) ->
+                    onError err
+                    log.print log.COMPILE, dir.stylesheets.gen
+                    console.log stdout + stderr
 
-        #             # if watch
-        #             #     stylus_watch = spawn './node_modules/.bin/stylus', [dir.stylesheets.src, '-w', '-o', dir.stylesheets.gen]
-        #             #     stylus_watch.stdout.on 'data', (data) -> console.log data.toString().trim()
+                    # if watch
+                    #     stylus_watch = spawn './node_modules/.bin/stylus', [dir.stylesheets.src, '-w', '-o', dir.stylesheets.gen]
+                    #     stylus_watch.stdout.on 'data', (data) -> console.log data.toString().trim()
 
-        #             # temporary
-        #             callback()
+                    # temporary
+                    callback()
 
         # generate client javascript
         exec "#{module.coffee} -co '#{path.dirname dir.scripts.gen}' '#{path.dirname dir.scripts.src}'", (err, stdout, stderr) ->

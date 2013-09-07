@@ -17,6 +17,10 @@ exports.post_mood = (req, res) ->
 # GET /moods
 exports.get_mood = (req, res) ->
 	numbers = req.query.n
+	if !numbers
+		resp.error res, resp.BAD
+		return
+		
 	cache.getMulti numbers, (val) ->
 		resp.success(res, val)
 

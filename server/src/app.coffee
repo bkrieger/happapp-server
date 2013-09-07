@@ -1,6 +1,7 @@
 express    = require 'express'
 http       = require 'http'
 api        = require './scripts/api'
+routes     = require './scripts/routes'
 {resp}     = require './scripts/response'
 {cache}    = require './scripts/cache'
 
@@ -9,8 +10,13 @@ cache.init()
 
 # Configuration
 app.configure ->
+    app.set('views', __dirname + '/views')
+    app.set('view engine', 'jade')
     app.use express.bodyParser()
     app.use express.methodOverride()
+    app.use express.cookieParser()
+    app.use express.favicon(__dirname + '/../../client/gen/assets/images/favicon.ico')
+    app.use(express.static(__dirname + '/../../client/gen'))
 
 app.configure 'development', ->
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }))
@@ -25,6 +31,7 @@ authenticate = (req, res, next) ->
     next()
 
 # Routes
+app.get '/', routes.index
 app.get '/api/moods', authenticate, api.get_mood
 app.post '/api/moods', authenticate, api.post_mood
 app.get '/api/dummy', api.populate_dummy

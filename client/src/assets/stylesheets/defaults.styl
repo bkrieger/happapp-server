@@ -1,0 +1,72 @@
+@import 'nib'
+
+@font-face
+    font-family Avenir
+    font-style normal
+    src: url('/assets/fonts/Avenir-Medium.otf')
+
+textColor = black
+mainColor = #A84B3A
+accentColor = #FF9F67
+backgroundColor = #FFF7F5
+secondaryColor = #4C646B
+secondaryAccent = #233138
+largeSize = 24px
+mainSize = 16px
+subSize = 12px
+
+*
+    box-sizing border-box
+
+html, body
+    height 100%
+    width 100%
+
+body
+    color textColor
+    font-family Avenir
+    font-size mainSize
+    margin 0px
+    padding 0px
+    text-rendering optimizeLegibility
+    background-attachment fixed
+
+p, ol, ul, td
+    font-size mainSize
+    margin 0px
+    padding 0px
+
+ul, ol
+    list-style-type none
+
+a
+    cursor pointer
+    color accentColor
+
+label
+    cursor pointer
+
+::-webkit-input-placeholder
+    font-weight normal
+    font-family Avenir
+
+input:-moz-placeholder
+    font-weight normal
+    font-family Avenir    
+
+input[type=text]
+    font-family Avenir
+    width 280px
+    height 40px
+    padding 0px 10px
+    font-size mainSize
+    border none
+    border-radius 5px
+    border 1px solid rgba(0,0,0,0.5)
+    // border-top 1px solid rgba(0,0,0,0.5)
+    // border-bottom 1px solid rgba(0,0,0,0.3)
+
+textarea
+    font-family Avenir
+    font-size mainSize
+    resize none
