@@ -18,7 +18,10 @@ exports.cache =
         for k in keys
             multi.get k
         multi.exec (err, reply) ->
-            callback reply
+            out = []
+            for r in reply
+                out.push JSON.parse(r)
+            callback out
 
     set: (key, value, duration) ->
         @client.setex key, duration, JSON.stringify(value)

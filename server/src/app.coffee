@@ -26,9 +26,9 @@ authenticate = (req, res, next) ->
 
 # Routes
 app.get '/api/moods', authenticate, api.get_mood
-app.get '/api/test', api.test
 app.post '/api/moods', authenticate, api.post_mood
-app.get '/api/multi', api.multi
+app.get '/api/dummy', api.populate_dummy
+app.get '/api/test', api.test
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Heroku ports or 3000
