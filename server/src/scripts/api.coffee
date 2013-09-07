@@ -9,14 +9,15 @@ exports.post_mood = (req, res) ->
 	if !q.id || !q.msg || !q.tags || !q.timestamp || !q.duration
 		resp.error res, resp.BAD
 		return
-	
+
 	cache.set q.id, mood(q.id, q.msg, q.tags, q.timestamp, q.duration), q.duration
 
 	resp.success res, 'ok'
 
 # GET /moods
 exports.get_mood = (req, res) ->
-	cache.get 123, (val) ->
+	numbers = req.query.n
+	cache.getMulti numbers, (val) ->
 		resp.success(res, val)
 
 # GET /dummy
@@ -26,12 +27,6 @@ exports.populate_dummy = (req, res) ->
 		cache.set k, v, d 
 
 	resp.success res, 'ok'
-
-# GET /test
-exports.test = (req, res) ->
-	numbers = req.query.n
-	cache.getMulti numbers, (val) ->
-		resp.success(res, val)
 
 mood = (_number, _message, _tags, _timestamp, _duration) ->
 	return {
