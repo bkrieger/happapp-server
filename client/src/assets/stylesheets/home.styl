@@ -28,17 +28,18 @@
 	padding 		50px 150px 50px 400px
 	margin-bottom	250px
 
-	background-image: -ms-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
-	background-image: -moz-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
-	background-image: -o-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
-	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #AA0470), color-stop(1, #FFFFFF));
-	background-image: -webkit-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
+	background-image 	-ms-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
+	background-image	-moz-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
+	background-image 	-o-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
+	background-image 	-webkit-gradient(linear, left top, right bottom, color-stop(0, #AA0470), color-stop(1, #FFFFFF));
+	background-image	-webkit-linear-gradient(top left, #AA0470 0%, #FFFFFF 100%);
 
 .iphone-screenshot
-	margin 0 0 0 10%
+	margin 	0 0 0 10%
+	float 	left
 	img
 		height 485px
-	float left
+	
 
 .text-on-image
 	padding-top 	300px
@@ -46,7 +47,7 @@
 	padding-right 	5%
 
 .textbox
-	background 	rgba(0,0,0,.5)
+	background 			rgba(0,0,0,.5)
 	border-radius 		3px
 	-moz-border-radius 	3px
 
@@ -55,17 +56,18 @@
 
 	span
 		color mainColor
+
 	div.description
 		padding 	10px 0 0 20px
 		color 		textColor
 
 .circle
-	height 50px
-	width 50px
-	margin 3px
-	background mainColor url('/assets/images/icons/hippo_xhdpi.png') no-repeat center 
-	background-size 75%
-	border-radius 25px
+	height 			50px
+	width 			50px
+	margin 			3px
+	background 		mainColor url('/assets/images/icons/ic_avatar.png') no-repeat center 
+	background-size 100%
+	border-radius 	25px
 	float left
 
 #header
@@ -82,14 +84,14 @@
 		float 		left
 
 	img.logo
-		margin 		10px 20px 0 5px
+		margin 		10px 0px 0 20px
 		height 		80px
 		width		80px
 		float 		left
 
 #top-strip
 	width 100%
-	background white url('/assets/images/cover.png') no-repeat right top
+	background white url('/assets/images/cover_iphone.png') no-repeat right top
 
 	.text-on-image
 		height 			690px
@@ -118,29 +120,51 @@
 		color textColor
 
 	.specifics
-		border solid black 1px
-		margin 	50px 0px 0px 75px
+		// border solid black 1px
+		margin 	50px 25px 0px 25px
 		padding 10px
-		width 40%
+		width 45%
 		float left
 		color mainColor
 
+		.who-sees
+			background 		blue url('/assets/images/icons/ic_avatar.png') no-repeat center
+
+		.what-phone
+			background 		red url('/assets/images/icons/ic_avatar.png') no-repeat center 
+
 		.hapdesc 
 			color secondaryColor
+
 		img
-			background mainColor
-		table 
-			width 100%
-			border black
-		.screenshot
-			img
-				width 100%
+			height 580px
+			margin-right 50px
+			float right
+		// .line
+		// 	border solid mainColor 1px
+		// 	height 380px
+		// 	margin-left 60px
+		// 	margin-top	20px
+		// 	position absolute	
 
 
+.people
+	height 			80px
+	width 			80px
+	margin 			20px
+	background-size 90%
+	border-radius 	40px
+	
 
 
+.caroline
+	background 		mainColor url('/assets/images/authors/caroline.png') no-repeat center 
 
+.brandon
+	background 		mainColor url('/assets/images/authors/brandon.png') no-repeat center 
 
+.joe
+	background 		mainColor url('/assets/images/authors/joe.png') no-repeat center 
 
-
-
+.alex
+	background 		mainColor url('/assets/images/authors/alex.png') no-repeat center 

@@ -2,11 +2,8 @@
 link(rel='stylesheet', href='/assets/stylesheets/home.css')
 section#home
 	div#header
-		div.title Happ
 		img(src='/assets/images/icons/happ_2x.png', alt='Happ logo', class='logo')
-		//- div.subtitle 
-		//- 	| A Penn Apps project <br>
-		//- 	| by Caroline Ho, Brandon Krieger, Joe Schaffer and Alex Yau
+		div.title Happ
 
 	div#top-strip
 
@@ -68,7 +65,7 @@ section#home
 		div.text-under-image
 			div.haptitle.strip-title More specifically
 			div.specifics.haptext
-				div.circle
+				div.circle.who-sees
 				| <strong>Who sees what I'm doing?</strong>
 				hr
 				div.hapdesc
@@ -78,7 +75,7 @@ section#home
 					| there we do all the work of setting up your list of friends. 
 
 			div.specifics.haptext
-				div.circle
+				div.circle.what-phone
 				| <strong>What phone do I need?</strong>
 				hr
 				div.hapdesc
@@ -88,9 +85,34 @@ section#home
 				div.circle
 				| <strong>Who are we?</strong>
 				hr
-				div.people
+				table
+					tr
+						td
+							div.people.caroline 
+						td
+							p.haptext Caroline Ho
+							p.hapdesc UPenn, Computer Science BSE
+					tr
+						td
+							div.people.brandon
+						td
+							p.haptext Brandon Krieger
+							p.hapdesc UPenn, Computer Science BSE
+					tr
+						td
+							div.people.joe
+						td
+							p.haptext Joe Schaffer
+							p.hapdesc UPenn, Computer Science BSE
+					tr
+						td
+							div.people.alex
+						td
+							p.haptext Alex Yau
+							p.hapdesc UPenn, Computer Engineering BSE
 
-
+			div.specifics.haptext
+				img(src='/assets/images/android.png', alt='android')
 
 script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 script(type='text/javascript', src='/scripts/pages/home.js')
