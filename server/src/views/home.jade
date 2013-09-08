@@ -64,7 +64,11 @@ section#home
 
 		div.text-under-image
 			div.haptitle.strip-title More specifically
+			
 			div.specifics.haptext
+				img(src='/assets/images/hip.png', alt='android')
+
+		div.specifics.haptext
 				div.circle.who-sees
 				| <strong>Who sees what I'm doing?</strong>
 				hr
@@ -72,14 +76,8 @@ section#home
 					| We designed the app so that the people who see your posts are only the people whose number you have 
 					| and who have your number.<br><br>
 					| This design facilitates the user experience. You, as the user, need only download the app and from 
-					| there we do all the work of setting up your list of friends. 
+					| there we do all the work of setting up your list of friends.  <br><br><br><br><br><br>
 
-			div.specifics.haptext
-				div.circle.what-phone
-				| <strong>What phone do I need?</strong>
-				hr
-				div.hapdesc
-					| We currently have working versions of the application for both Android 2.3 and iOS 6. <br><br><br><br><br><br><br>
 
 			div.specifics.haptext
 				div.circle
@@ -109,11 +107,21 @@ section#home
 							div.people.alex
 						td
 							p.haptext Alex Yau
-							p.hapdesc UPenn, Computer Engineering BSE
-
+							p.hapdesc UPenn, Computer Engineering BSE		
+			
 			div.specifics.haptext
-				img(src='/assets/images/icons/hippo_xhdpi.png', alt='android')
+				div.circle.what-phone
+				| <strong>What phone do I need?</strong>
+				hr
+				div.hapdesc
+					| We currently have working versions of the application for both Android 2.3 and iOS 6. 
+			
+			div.specifics.haptext
+				img(src='/assets/images/hippo.png', alt='android')		
 
+
+
+				
 script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 script(type='text/javascript', src='/scripts/pages/home.js')
 
