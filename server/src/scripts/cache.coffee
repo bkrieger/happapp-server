@@ -20,7 +20,8 @@ exports.cache =
         multi.exec (err, reply) ->
             out = []
             for r in reply
-                out.push JSON.parse(r)
+                if r
+                    out.push JSON.parse(r)
             callback out
 
     set: (key, value, duration) ->

@@ -6,11 +6,11 @@ exports.post_mood = (req, res) ->
 	q = req.query
 	
 	# incomplete request
-	if !q.id || !q.msg || !q.tags || !q.timestamp || !q.duration
+	if !q.id || !q.msg || !q.tag || !q.duration
 		resp.error res, resp.BAD
 		return
 
-	cache.set q.id, mood(q.id, q.msg, q.tags, q.timestamp, q.duration), q.duration
+	cache.set q.id, mood(q.id, q.msg, q.tag, new Date().getTime(), q.duration), q.duration
 
 	resp.success res, 'ok'
 
@@ -20,7 +20,7 @@ exports.get_mood = (req, res) ->
 	if !numbers
 		resp.error res, resp.BAD
 		return
-		
+
 	cache.getMulti numbers, (val) ->
 		resp.success(res, val)
 
@@ -32,16 +32,27 @@ exports.populate_dummy = (req, res) ->
 
 	resp.success res, 'ok'
 
-mood = (_number, _message, _tags, _timestamp, _duration) ->
+mood = (_number, _message, _tag, _timestamp, _duration) ->
 	return {
 		_id: _number
 		message: _message
-		tags: _tags
+		tag: _tag
 		timestamp: _timestamp
 		duration: _duration
 	}
 
 dummy = [
-	[6969696969, mood(6969696969, 'hello', 'going out', new Date(), 30), 30],
-	[1234567890, mood(1234567890, 'hello', 'going out', new Date(), 30), 30]
+	[6969696969, mood(6969696969, 'hello', 1, new Date().getTime(), 300), 300],
+	[1234567890, mood(1234567890, 'hello', 1, new Date().getTime(), 300), 300],
+	[4085553514, mood(4085553514, 'cool', 2, new Date().getTime(), 30000), 3000],
+	[8885555512, mood(8885555512, 'bro', 4, new Date().getTime(), 30000), 3000],
+	[5164584981, mood(5164584981, 'bro', 4, new Date().getTime(), 30000), 30000],
+	[9737477052, mood(9737477052, 'What\'s going on', 8, new Date().getTime(), 30000), 30000],
+	[2288617430, mood(2288617430, 'Let\'s get lunch?', 1, new Date().getTime(), 30000), 30000],
+	[6095067689, mood(6095067689, 'How is everyone doing?', 4, new Date().getTime(), 30000), 30000],
+	[5166607239, mood(5166607239, 'lolololol', 2, new Date().getTime(), 3000), 3000],
+	[2166456142, mood(2166456142, 'What\'s good?', 16, new Date().getTime(), 1000), 1000],
+	[2679946356, mood(2679946356, 'What\'s good?', 16, new Date().getTime(), 1), 1],
+	[7044308567, mood(7044308567, 'What\'s good?', 16, new Date().getTime(), 10000), 10000]
+
 ]
