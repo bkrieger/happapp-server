@@ -1,1 +1,0 @@
-window.Amplify = window.Amplify || {}

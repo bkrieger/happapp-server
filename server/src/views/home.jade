@@ -1,9 +1,100 @@
 !!! 5
 link(rel='stylesheet', href='/assets/stylesheets/home.css')
 section#home
-    p hello
+	div#header
+		div.title Happ
+		img(src='/assets/images/icons/happ_2x.png', alt='Happ logo', class='logo')
+		//- div.subtitle 
+		//- 	| A Penn Apps project <br>
+		//- 	| by Caroline Ho, Brandon Krieger, Joe Schaffer and Alex Yau
 
-    //- script(type='text/javascript', src='/assets/lib/jquery-easing.js')
+	div#top-strip
+
+		div.text-on-image
+			div.textbox
+				p.haptext What's <span>Happ</span>ening?
+				div.description.hapdesc
+					| An app that lets people know in real time who wants to socialize and what they want to do.
+
+		div.text-under-image
+			div.haptitle.strip-title 
+				| What are you in the mood to do? 
+			div#moods
+				table
+					tr 
+						td 
+							img(src='/assets/images/icons/chill_ios.png', alt='chill icon', class='icon')
+						td 
+							div.haptext Chill <span> - Just feel like hangin' with others? </span>
+					tr 
+						td 
+							img(src='/assets/images/icons/food_ios.png', alt='food icon', class='icon')
+						td 
+							div.haptext Food <span> - Wanna grab some grub? </span>
+					tr 
+						td 
+							img(src='/assets/images/icons/movie_ios.png', alt='movie icon', class='icon')
+						td 
+							div.haptext Movie <span> - Share your favorite rom-com with others? </span>
+					tr 
+						td 
+							img(src='/assets/images/icons/party_ios.png', alt='party icon', class='icon')
+						td 
+							div.haptext Party <span> - Searching for fellow ragers? </span>
+					tr 
+						td 
+							img(src='/assets/images/icons/sport_ios.png', alt='sport icon', class='icon')
+						td 
+							div.haptext Sport <span> - Wanna take advantage of the suddenly sunny day? </span>
+			
+			div.iphone-screenshot
+				img(src='/assets/images/iphone.png', alt='iphone screen shot')
+
+			div.hapdesc.block-desc 
+				| A social application designed specifically for your last minute and short term "happening's". 
+				| If ever you are suddenly struck by a late night craving for cookies, check out your Happ board 
+				| to see if anyone is feeling the same munchies and if no one has yet posted for a cookie happenin' then be 
+				| the first. <br><br>
+				| With Happ you can easily post to your friends your immediate plans to chill, eat, movie, party or sport. 
+				| And instantly both you and they can see and respond to whatever's been posted.
+
+
+	div#bottom-strip
+		div.text-on-image
+			div.textbox
+				p.haptext 
+					| Checkout what your friends just thought of doing!
+
+		div.text-under-image
+			div.haptitle.strip-title More specifically
+			div.specifics.haptext
+				div.circle
+				| <strong>Who sees what I'm doing?</strong>
+				hr
+				div.hapdesc
+					| We designed the app so that the people who see your posts are only the people whose number you have 
+					| and who have your number.<br><br>
+					| This design facilitates the user experience. You, as the user, need only download the app and from 
+					| there we do all the work of setting up your list of friends. 
+
+			div.specifics.haptext
+				div.circle
+				| <strong>What phone do I need?</strong>
+				hr
+				div.hapdesc
+					| We currently have working versions of the application for both Android 2.3 and iOS. <br><br><br><br><br><br><br>
+
+			div.specifics.haptext
+				div.circle
+				| <strong>Who are we?</strong>
+				hr
+				div.people
+
+
+
+script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 script(type='text/javascript', src='/scripts/pages/home.js')
+
+//- script(type='text/javascript', src='/assets/lib/jquery-easing.js')
 
 
