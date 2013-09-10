@@ -22,6 +22,7 @@ exports.get_mood = (req, res) ->
 		return
 
 	cache.getMulti numbers, (val) ->
+		# apply sorting here
 		resp.success(res, val)
 
 # GET /dummy
