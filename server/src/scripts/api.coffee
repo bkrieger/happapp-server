@@ -38,6 +38,10 @@ exports.get_mood = (req, res) ->
 			if v._id == me
 				val.splice(i, 1)
 				out.me = v
+				break
+
+		out.contacts.sort (a, b) ->
+			a.timestamp - b.timestamp
 
 		resp.success(res, out)
 
