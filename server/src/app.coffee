@@ -26,7 +26,8 @@ app.configure 'production', ->
 
 # TODO make authentication function
 authenticate = (req, res, next) ->
-    if req.query.muffin != 2
+    
+    if req.query.muffin != '2'
         # if not authorized
         resp.error res, resp.UNAUTHORIZED, 'unauthorized'
     else
