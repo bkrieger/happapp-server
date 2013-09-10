@@ -16,14 +16,30 @@ exports.post_mood = (req, res) ->
 
 # GET /moods
 exports.get_mood = (req, res) ->
+	me = req.query.me
 	numbers = req.query.n
-	if !numbers
+
+	if !numbers || !me
 		resp.error res, resp.BAD
 		return
 
+	numbers.push(me)
+
 	cache.getMulti numbers, (val) ->
 		# apply sorting here
-		resp.success(res, val)
+		out =
+			me: null
+			contacts: val
+
+		me = parseInt(me)
+
+		for i of val
+			v = val[i]
+			if v._id == me
+				val.splice(i, 1)
+				out.me = v
+
+		resp.success(res, out)
 
 # GET /dummy
 # populate redis with dummy data
