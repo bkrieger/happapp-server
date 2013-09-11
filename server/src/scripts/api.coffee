@@ -41,7 +41,7 @@ exports.get_mood = (req, res) ->
 				i += 1
 
 		out.contacts.sort (a, b) ->
-			a.timestamp - b.timestamp
+			b.timestamp - a.timestamp
 
 		resp.success(res, out)
 
