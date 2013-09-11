@@ -28,7 +28,7 @@ exports.get_mood = (req, res) ->
 	cache.getMulti numbers, (val) ->
 		# apply sorting here
 		out =
-			me: null
+			me: {}
 			contacts: val
 
 		for i of val
