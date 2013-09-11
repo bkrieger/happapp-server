@@ -31,8 +31,6 @@ exports.get_mood = (req, res) ->
 			me: null
 			contacts: val
 
-		me = parseInt(me)
-
 		for i of val
 			v = val[i]
 			if v._id == me
@@ -49,6 +47,7 @@ exports.get_mood = (req, res) ->
 # populate redis with dummy data
 exports.populate_dummy = (req, res) ->
 	
+	# Dummy doesn't work anymore!! numbers need to be strings
 	dummy = [
 		[6969696969, mood(6969696969, 'hello!', 1, new Date().getTime(), 300), 300],
 		[1234567890, mood(1234567890, 'come over to my place', 1, new Date().getTime(), 600), 600],
