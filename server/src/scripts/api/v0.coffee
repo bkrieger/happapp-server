@@ -1,5 +1,5 @@
-{resp} = require './response'
-{cache} = require './cache'
+{resp} = require '../response'
+{cache} = require '../cache'
 
 # POST /moods
 exports.post_mood = (req, res) ->

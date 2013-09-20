@@ -1,6 +1,7 @@
 express    = require 'express'
 http       = require 'http'
-api        = require './scripts/api'
+api        = require './scripts/api/v0'
+api_v1     = require './scripts/api/v1'
 routes     = require './scripts/routes'
 {resp}     = require './scripts/response'
 {cache}    = require './scripts/cache'
@@ -38,6 +39,10 @@ app.get '/', routes.index
 app.get '/api/moods', authenticate, api.get_mood
 app.post '/api/moods', authenticate, api.post_mood
 app.get '/api/dummy', api.populate_dummy
+
+# API v1
+app.get '/api/v1/moods', authenticate, api_v1.get_mood
+
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Heroku ports or 3000
