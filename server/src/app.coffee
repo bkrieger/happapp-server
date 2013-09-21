@@ -1,5 +1,6 @@
 express    = require 'express'
 http       = require 'http'
+schedule   = require 'node-schedule'
 api        = require './scripts/api/v0'
 api_v1     = require './scripts/api/v1'
 hidden     = require './scripts/hidden'
@@ -37,6 +38,13 @@ app.get '/api/v1/get', hidden.authenticate, api_v1.get_mood
 app.get '/api/v1/post', hidden.authenticate, api_v1.post_mood
 
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
+
+# Analytics
+rule = new schedule.RecurrenceRule()
+rule.hour = 5
+job = schedule.scheduleJob rule, () ->
+    cache.info (val) ->
+        hidden.email val
 
 # Heroku ports or 3000
 port = process.env.PORT || 3000
