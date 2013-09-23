@@ -41,6 +41,7 @@ app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 # Analytics
 rule = new schedule.RecurrenceRule()
 rule.hour = 5
+rule.minute = 0
 job = schedule.scheduleJob rule, () ->
     cache.info (val) ->
         hidden.email val
