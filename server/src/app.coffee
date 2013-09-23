@@ -32,14 +32,10 @@ app.get '/', routes.index
 app.get '/api/moods', hidden.authenticate, api.get_mood
 app.post '/api/moods', hidden.authenticate, api.post_mood
 app.get '/api/dummy', api.populate_dummy
-
-# API v1
 app.get '/api/v1/getmoods', hidden.authenticate, api_v1.get_mood
 app.post '/api/v1/postmood', hidden.authenticate, api_v1.post_mood
-
 app.get '/analytics', (req, res) -> cache.info (val) -> 
     res.send "<html><body><pre><code>#{val}</code></pre></body></html>"
-
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Analytics
