@@ -34,8 +34,8 @@ app.post '/api/moods', hidden.authenticate, api.post_mood
 app.get '/api/dummy', api.populate_dummy
 
 # API v1
-app.get '/api/v1/get', hidden.authenticate, api_v1.get_mood
-app.get '/api/v1/post', hidden.authenticate, api_v1.post_mood
+app.get '/api/v1/getmoods', hidden.authenticate, api_v1.get_mood
+app.post '/api/v1/postmood', hidden.authenticate, api_v1.post_mood
 
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
