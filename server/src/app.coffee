@@ -40,6 +40,8 @@ app.post '/api/v1/postmood', hidden.authenticate, api_v1.post_mood
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Analytics
+app.get '/analytics', cache.info (val) ->
+    hidden.email val
 rule = new schedule.RecurrenceRule()
 rule.hour = 5
 job = schedule.scheduleJob rule, () ->
