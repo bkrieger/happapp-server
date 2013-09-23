@@ -1,8 +1,8 @@
 express    = require 'express'
 http       = require 'http'
-schedule   = require 'node-schedule'
 api        = require './scripts/api/v0'
 api_v1     = require './scripts/api/v1'
+analytics  = require './scripts/analytics'
 hidden     = require './scripts/hidden'
 routes     = require './scripts/routes'
 {resp}     = require './scripts/response'
@@ -10,6 +10,7 @@ routes     = require './scripts/routes'
 
 app = module.exports = express.createServer()
 cache.init()
+analytics.init()
 
 # Configuration
 app.configure ->
@@ -34,17 +35,8 @@ app.post '/api/moods', hidden.authenticate, api.post_mood
 app.get '/api/dummy', api.populate_dummy
 app.get '/api/v1/getmoods', hidden.authenticate, api_v1.get_mood
 app.post '/api/v1/postmood', hidden.authenticate, api_v1.post_mood
-app.get '/analytics', (req, res) -> cache.info (val) -> 
-    res.send "<html><body><pre><code>#{val}</code></pre></body></html>"
+app.get '/analytics', hidden.authenticate, analytics.get_stats
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
-
-# Analytics
-rule = new schedule.RecurrenceRule()
-rule.hour = 5
-rule.minute = 0
-job = schedule.scheduleJob rule, () ->
-    cache.info (val) ->
-        hidden.email val
 
 # Heroku ports or 3000
 port = process.env.PORT || 3000
