@@ -38,7 +38,7 @@ app.get '/api/v1/getmoods', hidden.authenticate, api_v1.get_mood
 app.post '/api/v1/postmood', hidden.authenticate, api_v1.post_mood
 
 app.get '/analytics', (req, res) -> cache.info (val) -> 
-    resp.success res, val
+    resp.success res, "<pre><code>#{val}</code></pre>"
 
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
