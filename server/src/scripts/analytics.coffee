@@ -6,8 +6,6 @@ exports.init = () ->
 	rule = new schedule.RecurrenceRule()
 	rule.hour = 5
 	rule.minute = 0
-	cache.info (val) ->
-		hidden.email val
 	job = schedule.scheduleJob rule, () ->
 		cache.info (val) ->
     		hidden.email val
