@@ -40,6 +40,7 @@ exports.get_mood = (req, res) ->
 			v = val[i]
 			if v._id == me
 				val.splice(i, 1)
+				delete v.contacts
 				out.me = v
 			else if !v.contacts.hasOwnProperty me
 				val.splice(i, 1)
