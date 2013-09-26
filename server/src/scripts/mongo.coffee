@@ -15,5 +15,20 @@ exports.mongo =
                 count: { type: Number, default: 0 }
             })
             DailyCount = mongoose.model('DailyCount', dailyCountSchema)
-            currentDay = new DailyCount()
-            
+            currentDay = new DailyCount
+            currentDay.save (err, currentDay) ->
+                if err
+                    console.log 'MongoDB Error: ' + err
+
+    incrementCurrentDay: ->
+        if currentDay
+            currentDay.count = currentDay.count + 1
+            currentDay.save (err, currentDay) ->
+                if err
+                    console.log 'MongoDB Error: ' + err
+
+    makeNewCurrentDay: ->
+        currentDay = new DailyCount
+        currentDay.save (err, currentDay) ->
+            if err
+                console.log 'MongoDB Error: ' + err
