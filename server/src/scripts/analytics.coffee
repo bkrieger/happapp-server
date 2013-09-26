@@ -4,7 +4,7 @@ hidden     = require './hidden'
 
 exports.init = () ->
 	rule = new schedule.RecurrenceRule()
-	rule.hour = 5
+	rule.hour = 4
 	rule.minute = 0
 	job = schedule.scheduleJob rule, () ->
 		cache.info (val) ->
@@ -12,4 +12,4 @@ exports.init = () ->
 
 exports.get_stats = (req, res) ->
 	cache.info (val) ->
-		res.send "<html><body><pre><code>#{val}</code></pre></body></html>"
+		res.render 'stats', {title: "Stats", stats: val}

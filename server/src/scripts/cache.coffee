@@ -28,5 +28,5 @@ exports.cache =
         @client.setex key, duration, JSON.stringify(value)
 
     info: (callback) ->
-        val = @client.info (err, info) ->
+        @client.info (err, info) ->
             callback info

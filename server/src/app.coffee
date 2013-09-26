@@ -7,9 +7,11 @@ hidden     = require './scripts/hidden'
 routes     = require './scripts/routes'
 {resp}     = require './scripts/response'
 {cache}    = require './scripts/cache'
+# {mongo}    = require './scripts/mongo'
 
 app = module.exports = express.createServer()
 cache.init()
+# mongo.init()
 analytics.init()
 
 # Configuration
