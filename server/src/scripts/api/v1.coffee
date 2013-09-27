@@ -53,6 +53,26 @@ exports.get_mood = (req, res) ->
 
 		resp.success(res, out)
 
+# POST /friends
+exports.change_friends = (req, res) ->
+	me = req.query.me
+	numbers = req.query.n
+
+	if !numbers || !me
+		resp.error res, resp.BAD
+		return
+
+	contacts = {};
+	for number in numbers
+	    contacts[number] = 1;
+
+	cache.get me, (mood) ->
+		mood.contacts = contacts
+		remaining_duration = mood.timestamp + mood.duration - new Date().getTime()
+		cache.set me, mood, mood.duration, remaining_duration
+
+	resp.success res, 'ok'
+
 # GET /dummy
 # populate redis with dummy data
 exports.populate_dummy = (req, res) ->

@@ -37,6 +37,7 @@ app.get '/', routes.index
 # app.get '/api/dummy', api.populate_dummy
 app.get '/api/v1/moods', hidden.authenticate, api_v1.get_mood
 app.post '/api/v1/moods', hidden.authenticate, api_v1.post_mood
+app.post '/api/v1/friends', hidden.authenticate, api_v1.change_friends
 app.get '/api/v1/dummy', api_v1.populate_dummy
 app.get '/analytics', hidden.authenticate, analytics.get_stats
 app.get '*', (req, res) -> resp.error res, resp.NOT_FOUND
