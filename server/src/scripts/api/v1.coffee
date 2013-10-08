@@ -67,9 +67,10 @@ exports.change_friends = (req, res) ->
 	    contacts[number] = 1;
 
 	cache.get me, (mood) ->
-		mood.contacts = contacts
-		remaining_duration = mood.timestamp + mood.duration - new Date().getTime()
-		cache.set me, mood, mood.duration, remaining_duration
+		if mood
+			mood.contacts = contacts
+			remaining_duration = mood.timestamp + mood.duration - new Date().getTime()
+			cache.set me, mood, mood.duration, remaining_duration
 
 	resp.success res, 'ok'
 
