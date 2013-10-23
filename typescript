@@ -1,0 +1,71 @@
+Script started on Wed 11 Sep 2013 12:15:16 AM UTC
+]0;ec2-user@ip-10-196-35-108:~/server/server[?1034h[ec2-user@ip-10-196-35-108 server]$ nohup cake run &.s[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+Cakefile  LICENSE       nohup.out     README.md  [0m[38;5;27mserver[0m
+[38;5;27mclient[0m    [38;5;27mnode_modules[0m  package.json  script.sh  typescript
+[m]0;ec2-user@ip-10-196-35-108:~/server/server[ec2-user@ip-10-196-35-108 server]$ ps -A
+  PID TTY          TIME CMD
+    1 ?        00:00:00 init
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:01 ksoftirqd/0
+    4 ?        00:00:00 kworker/0:0
+    5 ?        00:00:00 kworker/u:0
+    6 ?        00:00:00 migration/0
+    7 ?        00:00:00 cpuset
+    8 ?        00:00:00 khelper
+    9 ?        00:00:00 kdevtmpfs
+   10 ?        00:00:00 netns
+   11 ?        00:00:00 kworker/u:1
+   15 ?        00:00:00 xenwatch
+   16 ?        00:00:00 xenbus
+   82 ?        00:00:00 sync_supers
+   84 ?        00:00:00 bdi-default
+   85 ?        00:00:00 kintegrityd
+   87 ?        00:00:00 kblockd
+   96 ?        00:00:12 kworker/0:1
+  101 ?        00:00:00 md
+  199 ?        00:00:00 khungtaskd
+  204 ?        00:00:00 kswapd0
+  205 ?        00:00:00 ksmd
+  275 ?        00:00:00 fsnotify_mark
+  280 ?        00:00:00 crypto
+  287 ?        00:00:00 kthrotld
+  293 ?        00:00:00 khvcd
+  349 ?        00:00:00 deferwq
+  581 ?        00:00:11 jbd2/xvda1-8
+  582 ?        00:00:00 ext4-dio-unwrit
+  619 ?        00:00:00 udevd
+  654 ?        00:00:00 udevd
+  659 ?        00:00:00 udevd
+  808 ?        00:00:00 kauditd
+  977 ?        00:00:00 dhclient
+ 1017 ?        00:00:01 auditd
+ 1032 ?        00:00:00 rsyslogd
+ 1053 ?        00:00:00 dbus-daemon
+ 1151 ?        00:00:00 sshd
+ 1169 ?        00:00:00 ntpd
+ 1184 ?        00:00:09 sendmail
+ 1191 ?        00:00:00 sendmail
+ 1199 ?        00:00:18 crond
+ 1209 ?        00:00:00 atd
+ 1228 hvc0     00:00:00 agetty
+ 1230 tty1     00:00:00 mingetty
+ 1234 tty2     00:00:00 mingetty
+ 1236 tty3     00:00:00 mingetty
+ 1238 tty4     00:00:00 mingetty
+ 1240 tty5     00:00:00 mingetty
+ 1242 tty6     00:00:00 mingetty
+18040 ?        00:03:14 redis-server
+21500 ?        00:00:00 flush-202:1
+21501 ?        00:00:00 sshd
+21503 ?        00:00:00 sshd
+21504 pts/0    00:00:00 bash
+21956 pts/0    00:00:00 node
+21958 pts/0    00:00:00 node
+21962 pts/0    00:00:00 script
+21964 pts/0    00:00:00 script
+21965 pts/2    00:00:00 bash
+21981 pts/2    00:00:00 ps
+]0;ec2-user@ip-10-196-35-108:~/server/server[ec2-user@ip-10-196-35-108 server]$ ;[Kexit
+exit
+
+Script done on Wed 11 Sep 2013 12:16:34 AM UTC
