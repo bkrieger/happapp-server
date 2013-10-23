@@ -77,14 +77,13 @@ exports.change_friends = (req, res) ->
 
 # POST /feedback
 exports.send_feedback = (req, res) ->
-	me = req.query.me
-	message = req.query.message
+	body = "You have received the following feedback:</br>"
 
-	if !me || !message
-		resp.error res, resp.BAD
-		return
+	for key in req.query
+		value = req.query.key
+		body += "#{key}: #{value}</br>"
 
-	hidden.email "Feedback", "From: #{me}<br/>Message: #{message}"
+	hidden.email "Feedback", body
 
 	resp.success res, 'ok'
 
