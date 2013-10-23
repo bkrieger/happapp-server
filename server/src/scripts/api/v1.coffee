@@ -80,7 +80,7 @@ exports.send_feedback = (req, res) ->
 	body = "You have received the following feedback:</br>"
 
 	for key in req.query
-		value = req.query.key
+		value = req.query[key]
 		body += "#{key}: #{value}</br>"
 
 	hidden.email "Feedback", body
