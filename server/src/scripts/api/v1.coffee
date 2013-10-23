@@ -84,7 +84,7 @@ exports.send_feedback = (req, res) ->
 		resp.error res, resp.BAD
 		return
 
-    hidden.email "Feedback", "From: #{me}<br/>Message: #{message}"
+	hidden.email "Feedback", "From: #{me}<br/>Message: #{message}"
 
 	resp.success res, 'ok'
 
