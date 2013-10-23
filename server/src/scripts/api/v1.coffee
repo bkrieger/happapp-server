@@ -79,8 +79,8 @@ exports.change_friends = (req, res) ->
 exports.send_feedback = (req, res) ->
 	body = "You have received the following feedback:</br>"
 	body += req.query.me
-	for key in req.query
-		value = req.query[key]
+	for key in req.body
+		value = req.body[key]
 		body += "goodbye"
 		body += "#{key}: #{value}</br>"
 
