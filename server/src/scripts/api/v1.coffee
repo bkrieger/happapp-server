@@ -1,3 +1,4 @@
+hidden = require '../hidden'
 {resp} = require '../response'
 {cache} = require '../cache'
 
@@ -71,6 +72,19 @@ exports.change_friends = (req, res) ->
 			mood.contacts = contacts
 			remaining_duration = mood.timestamp + mood.duration - new Date().getTime()
 			cache.set me, mood, mood.duration, remaining_duration
+
+	resp.success res, 'ok'
+
+# POST /feedback
+exports.send_feedback = (req, res) ->
+	me = req.query.me
+	message = req.query.message
+
+	if !me || !message
+		resp.error res, resp.BAD
+		return
+
+    hidden.email "Feedback", "From: #{me}<br/>Message: #{message}"
 
 	resp.success res, 'ok'
 

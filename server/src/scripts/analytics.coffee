@@ -8,7 +8,7 @@ exports.init = () ->
 	rule.minute = 0
 	job = schedule.scheduleJob rule, () ->
 		cache.info (val) ->
-    		hidden.email val
+    		hidden.email "Daily Happ Update", val
 
 exports.get_stats = (req, res) ->
 	cache.info (val) ->
