@@ -77,15 +77,7 @@ exports.change_friends = (req, res) ->
 
 # POST /feedback
 exports.send_feedback = (req, res) ->
-	body = "You have received the following feedback:</br>"
-	body += JSON.stringify(req.query)
-	for key in req.body
-		value = req.body[key]
-		body += "goodbye"
-		body += "#{key}: #{value}</br>"
-
-	hidden.email "Feedback", body
-
+	hidden.email "Happ Feedback", "You have received the following feedback:</br>#{JSON.stringify(req.query)}"
 	resp.success res, 'ok'
 
 # GET /dummy
