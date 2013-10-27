@@ -5,8 +5,8 @@ exports.index = (req, res) ->
 
 # support page
 exports.support = (req, res) ->
-	res.render 'support'
+	res.render 'support', {title: "Happ | Support"}
 
 # terms
 exports.terms = (req, res) ->
-	res.render 'terms'
+	res.render 'terms', {title: "Happ | Terms of Service"}
