@@ -6,48 +6,21 @@ section#home
 		div.title Happ
 
 	div
-		div.text-on-image
-			div.textbox
-				div.description.hapdesc
-					| Contact us at Happ.the.App@gmail.com.
-
-	div#bottom-strip
-			div.specifics.haptext
-				div.circle
-				| <strong>Who are we?</strong>
-				hr
-				table
-					tr
-						td
-							div.people.caroline 
-						td
-							p.haptext Caroline Ho
-							p.hapdesc UPenn, Computer Science BSE
-					tr
-						td
-							div.people.brandon
-						td
-							p.haptext Brandon Krieger
-							p.hapdesc UPenn, Computer Science BA
-					tr
-						td
-							div.people.joe
-						td
-							p.haptext Joe Schaffer
-							p.hapdesc UPenn, Computer Science BSE
-					tr
-						td
-							div.people.alex
-						td
-							p.haptext Alex Yau
-							p.hapdesc UPenn, Computer Engineering BSE		
-					tr
-						td
-							div.people.levin
-						td
-							p.haptext Alexander Levin
-							p.hapdesc UPenn, Finance BSE		
+		div.text-under-image
+			div.haptitle.strip-title Contact Us
 			
+			div.specifics.haptext
+				img(src='/assets/images/hip.png', alt='android')
+
+		div.specifics.haptext
+				div.circle.who-sees
+				| <strong>Email us at Happ.the.App@gmail.com.</strong>
+			
+			div.specifics.haptext
+				img(src='/assets/images/hippo.png', alt='android')		
+
+
+
 				
 script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
 script(type='text/javascript', src='/scripts/pages/home.js')
