@@ -91,18 +91,20 @@ exports.populate_dummy = (req, res) ->
 	}
 	
 	dummy = [
-		["6969696969", mood("6969696969", 'hello!', 1, contacts, new Date().getTime(), 300), 300],
-		["1234567890", mood("1234567890", 'come over to my place', 1, contacts, new Date().getTime(), 600), 600]
-		["4085553514", mood("4085553514", 'food?', 2, contacts, new Date().getTime(), 1000), 1000],
-		["8885555512", mood("8885555512", 'Lets see a movie', 3, contacts, new Date().getTime(), 1400), 1400],
+		["4085553514", mood("4085553514", "Thinking of throwing a party, who's in?", 4, contacts, new Date().getTime(), 1000), 1000],
+		["8885555512", mood("8885555512", 'Anyone want to see a movie?', 3, contacts, new Date().getTime(), 1400), 1400],
 		["5164584981", mood("5164584981", 'Hey guys, movie?', 3, contacts, new Date().getTime(), 1800), 1800],
-		["9737477052", mood("9737477052", 'Whats going on', 4, contacts, new Date().getTime(), 2100), 2100],
+		["9737477052", mood("9737477052", 'Whats going on', 1, contacts, new Date().getTime(), 2100), 2100],
 		["7044308567", mood("7044308567", 'Anyone down for Chipotle?', 2, contacts, new Date().getTime(), 2500), 2500],
 		["2288617430", mood("2288617430", 'in the mood for Bobbys', 2, contacts, new Date().getTime(), 3500), 3500],
 		["6095067689", mood("6095067689", 'Anyone want to go out tonite?', 4, contacts, new Date().getTime(), 3700), 3700],
 		["5166607239", mood("5166607239", 'Gym time?', 5, contacts, new Date().getTime(), 4000), 4000],
 		["2678477385", mood("2678477385", 'Im feeling a movie, not sure which one.', 3, contacts, new Date().getTime(), 2700), 2700],
 		["6154794880", mood("6154794880", 'Soccer anyone?', 5, contacts, new Date().getTime(), 3100), 3100]
+		["5555648583", mood("5555648583", 'Soccer anyone?', 5, contacts, new Date().getTime(), 3100), 3100]
+		["5555228243", mood("5555228243", 'Anyone down for Chipotle?', 2, contacts, new Date().getTime(), 180), 180]
+		["5556106679", mood("5556106679", "Let's chill at my place", 1, contacts, new Date().getTime(), 820), 820]
+		["5557664823", mood("5557664823", "Feeling hungry...dinner?", 2, contacts, new Date().getTime(), 123), 123]
 	]
 
 	for [k, v, d] in dummy
