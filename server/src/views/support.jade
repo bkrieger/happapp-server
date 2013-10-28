@@ -1,11 +1,21 @@
 !!! 5
-link(rel='stylesheet', href='/assets/stylesheets/support.css')
-section#support
-	h1 support
-	h3 
-		| Please contact: 
-		a(href='mailto:happ.theapp@gmail.com') happ.theapp@gmail.com 
-		| for support
-	
+link(rel='stylesheet', href='/assets/stylesheets/home.css')
+section#home
+	div#header
+		img(src='/assets/images/icons/ic_avatar.png', alt='Happ logo', class='logo')
+		div.title Happ
 
+	div#top-strip
+		div.text-on-image
+			div.textbox
+				p.haptext Support
+				div.description.hapdesc
+					| Please contact us at 
+					a(href='mailto:happ.theapp@gmail.com') happ.theapp@gmail.com
+					| with questions or comments.
 
+				
+script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+script(type='text/javascript', src='/scripts/pages/home.js')
+
+//- script(type='text/javascript', src='/assets/lib/jquery-easing.js')
