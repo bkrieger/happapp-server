@@ -47,7 +47,7 @@ app.post     '/dev/err-android', dev.err_android
 
 app.get     '/analytics', hidden.authenticate, analytics.get_stats
 app.get     '/bot', (req, res) -> resp.success res, 'ok'
-app.get     '/verifyios', verify.verify_ios
+app.get     '/verify', verify.verify_ios
 app.get     '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Heroku ports or 3000
