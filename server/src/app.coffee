@@ -6,6 +6,7 @@ analytics  = require './scripts/analytics'
 hidden     = require './scripts/hidden'
 routes     = require './scripts/routes'
 dev        = require './scripts/dev'
+verify     = require './scripts/verify'
 {resp}     = require './scripts/response'
 {cache}    = require './scripts/cache'
 # {mongo}    = require './scripts/mongo'
@@ -46,6 +47,7 @@ app.post     '/dev/err-android', dev.err_android
 
 app.get     '/analytics', hidden.authenticate, analytics.get_stats
 app.get     '/bot', (req, res) -> resp.success res, 'ok'
+app.get     '/verifyios', (req, res) -> verify.verify_ios
 app.get     '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Heroku ports or 3000
