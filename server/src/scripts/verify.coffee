@@ -1,2 +1,3 @@
 exports.verify_ios = (req, res) ->
-	res.redirect 'http://google.com'
+    verificationCode = req.query.verify
+    res.redirect "happ://#{verificationCode}"
