@@ -15,9 +15,15 @@ exports.post_mood = (req, res) ->
 	for number in q.n
 	    contacts[number] = 1;
 
-	cache.set q.id, mood(q.id, q.msg, q.tag, contacts, new Date().getTime(), q.duration), q.duration
+	timestamp = new Date().getTime()
+	cache.set q.id, mood(q.id, q.msg, q.tag, contacts, timestamp, q.duration), q.duration
 
-	resp.success res, 'ok'
+	out = 
+		message: q.msg
+		timestamp: timestamp
+		duration: q.duration
+
+	resp.success res, out
 
 # GET /moods
 exports.get_mood = (req, res) ->
