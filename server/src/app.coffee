@@ -43,6 +43,7 @@ app.post    '/api/v1/friends', hidden.authenticate, api_v1.change_friends
 app.post    '/api/v1/feedback', api_v1.send_feedback
 app.get     '/api/v1/dummy', api_v1.populate_dummy
 
+# Debugging
 app.post     '/dev/err-android', dev.err_android 
 
 app.get     '/analytics', hidden.authenticate, analytics.get_stats

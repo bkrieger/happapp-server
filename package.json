@@ -10,6 +10,7 @@
     , "stylus": "0.28.x"
     , "nib": "0.7.x"
     , "jade": ">= 0.0.1"
+    , "node-mysql": "0.3.x"
   },
   "engines": {
     "node": "0.8.x",
