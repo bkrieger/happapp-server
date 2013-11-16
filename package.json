@@ -12,6 +12,7 @@
     , "jade": ">= 0.0.1"
     , "mysql": "2.0.x"
     , "nodemailer": "0.5.x"
+    , "apn": "1.4.x"
   },
   "engines": {
     "node": "0.8.x",
