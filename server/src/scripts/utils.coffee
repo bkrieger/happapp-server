@@ -13,3 +13,7 @@ exports.email = (subject, message) ->
         if error
             console.log("error sending mail")
         smtpTransport.close()
+
+exports.verify_ios = (req, res) ->
+    verificationCode = req.query.code
+    res.redirect "happ://#{verificationCode}"

@@ -1,12 +1,10 @@
 express    = require 'express'
-http       = require 'http'
-api        = require './scripts/api/v0'
 api_v1     = require './scripts/api/v1'
 analytics  = require './scripts/analytics'
 auth       = require './scripts/stealth/auth'
 routes     = require './scripts/routes'
 dev        = require './scripts/dev'
-verify     = require './scripts/verify'
+utils     = require './scripts/utils'
 {resp}     = require './scripts/response'
 {cache}    = require './scripts/cache'
 # {mongo}    = require './scripts/mongo'
@@ -37,20 +35,23 @@ app.get     '/', routes.index
 app.get     '/support', routes.support
 app.get     '/terms', routes.terms
 
+# API
 app.get     '/api/v1/moods', auth.authenticate, api_v1.get_mood
 app.post    '/api/v1/moods', auth.authenticate, api_v1.post_mood
 app.post    '/api/v1/friends', auth.authenticate, api_v1.change_friends
 app.post    '/api/v1/feedback', api_v1.send_feedback
 app.get     '/api/v1/dummy', api_v1.populate_dummy
 
+# Private API
+app.get     '/verify', utils.verify_ios
 app.post    '/api/v1/registerpush', auth.authenticate, api_v1.register_push
 
 # Debugging
-app.post     '/dev/err-android', dev.err_android 
+app.post     '/dev/err-android', dev.err_android
 
 app.get     '/analytics', auth.authenticate, analytics.get_stats
 app.get     '/bot', (req, res) -> resp.success res, 'ok'
-app.get     '/verify', verify.verify_ios
+
 app.get     '*', (req, res) -> resp.error res, resp.NOT_FOUND
 
 # Heroku ports or 3000
