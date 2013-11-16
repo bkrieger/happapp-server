@@ -57,5 +57,4 @@ app.get     '*', (req, res) -> resp.error res, resp.NOT_FOUND
 # Heroku ports or 3000
 port = process.env.PORT || 3000
 app.listen port, ->
-    console.log 'Express server listening on port %d in %s mode', app.address().port, app.settings.env
-
+    console.log 'Express server listening on port %d in %s mode at %s', app.address().port, app.settings.env, new Date()
