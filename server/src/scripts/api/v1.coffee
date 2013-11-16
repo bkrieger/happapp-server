@@ -96,7 +96,11 @@ exports.register_push = (req, res) ->
 		resp.error res, resp.BAD
 		return
 
-	database.put_device me, os, token
+	database.put_device me, os, token, (err) ->
+		if err
+			resp.error res, resp.INTERNAL
+		else
+			resp.success res, 'ok'
 
 # GET /dummy
 # populate redis with dummy data
