@@ -28,6 +28,7 @@ exports.database =
         connection.query "SELECT * FROM users WHERE phone_number = #{phone_number}", (err, result) ->
             if err
                 console.log("SQL SELECT error")
+                console.log(err)
             else
                 console.log("SQL SELECT success")
                 callback result
