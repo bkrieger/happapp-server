@@ -1,5 +1,5 @@
 schedule   = require 'node-schedule'
-hidden     = require './hidden'
+utils     = require './utils'
 {cache}    = require './cache'
 
 exports.init = () ->
@@ -8,7 +8,7 @@ exports.init = () ->
 	rule.minute = 0
 	job = schedule.scheduleJob rule, () ->
 		cache.info (val) ->
-    		hidden.email "Daily Happ Update", val
+    		utils.email "Daily Happ Update", val
 
 exports.get_stats = (req, res) ->
 	cache.info (val) ->
