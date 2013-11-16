@@ -8,5 +8,4 @@ npm-debug.log
 server/gen
 client/gen
 
-server/src/scripts/hidden.coffee
-server/src/scripts/database.coffee
+server/src/scripts/stealth
