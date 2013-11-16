@@ -1,6 +1,7 @@
 hidden = require '../hidden'
 {resp} = require '../response'
 {cache} = require '../cache'
+{database} = require '../database'
 
 # POST /moods
 exports.post_mood = (req, res) ->
@@ -85,6 +86,17 @@ exports.change_friends = (req, res) ->
 exports.send_feedback = (req, res) ->
 	hidden.email "Happ Feedback", "You have received the following feedback:</br>#{JSON.stringify(req.query)}"
 	resp.success res, 'ok'
+
+# POST /registerpush
+exports.register_push = (req, res) ->
+	me = req.query.me
+	os = req.query.os
+	token = req.query.token
+	if !me || !os || !token
+		resp.error res, resp.BAD
+		return
+
+	database.put_device me, os, token
 
 # GET /dummy
 # populate redis with dummy data
