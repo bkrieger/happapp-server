@@ -1,5 +1,5 @@
 nodemailer = require 'nodemailer'
-{conf} = require 'stealth/conf'
+{conf}     = require './stealth/conf'
 
 exports.email = (subject, message) ->
     smtpTransport = nodemailer.createTransport("SMTP", conf.mail.config)

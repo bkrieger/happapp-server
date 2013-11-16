@@ -1,4 +1,4 @@
-{conf}   = require 'stealth/conf'
+{conf}   = require './stealth/conf'
 mysql    = require 'mysql'
 
 exports.database =
