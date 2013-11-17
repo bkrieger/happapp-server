@@ -34,7 +34,7 @@ androidGcmPost = (payload) ->
             key: conf.gcm.api_key
             'Content-Type': 'application/json'
 
-    req = http.request post_options, res ->
+    req = http.request post_options, (res) ->
         res.setEncoding('utf8')
         res.on 'data', (chunk) ->    
         #     console.log('Response: ' + chunk);
