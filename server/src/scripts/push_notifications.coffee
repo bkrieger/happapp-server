@@ -3,7 +3,7 @@ https       = require 'https'
 {database}  = require './database' 
 {conf}      = require './stealth/conf'
 
-exports.send = (phone_numbers) ->
+exports.send = (phone_numbers, sender_number, tag) ->
     database.get_devices phone_numbers, (rows) ->
         androids = []
         for row in rows
@@ -23,7 +23,9 @@ exports.send = (phone_numbers) ->
             payload =
                 registration_ids: androids
                 data: 
-                    msg: "Yo what's up"
+                    msg: "Alex wants to chill with you."
+                    tag: tag
+                    sender: sender_number
             androidGcmPost payload
 
 

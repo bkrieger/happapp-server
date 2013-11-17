@@ -21,7 +21,7 @@ exports.post_mood = (req, res) ->
 	cache.set q.id, mood(q.id, q.msg, q.tag, contacts, timestamp, q.duration), q.duration
 
 	# TEST
-	push.send ['2679946356']
+	push.send ['2679946356', '5164584981'], q.id, q.tag
 
 	out = 
 		message: q.msg
