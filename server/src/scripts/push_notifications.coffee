@@ -28,7 +28,7 @@ exports.send = (phone_numbers) ->
 
 androidGcmPost = (payload) ->
     post_options = 
-        host: "https://android.googleapis.com/gcm/send"
+        host: "android.googleapis.com/gcm/send"
         method: 'POST'
         headers:
             key: conf.gcm.api_key
