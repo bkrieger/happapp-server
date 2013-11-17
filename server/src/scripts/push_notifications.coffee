@@ -36,8 +36,10 @@ androidGcmPost = (payload) ->
 
     req = http.request post_options, (res) ->
         res.setEncoding('utf8')
-        res.on 'data', (chunk) ->    
-        #     console.log('Response: ' + chunk);
+        res.on 'data', (chunk) -> 
+            console.log('Response: ' + chunk)
+        res.on 'error', (err) ->
+            console.log('Error: ' + err)
 
     req.write(payload.toString())
     req.end()
