@@ -1,5 +1,5 @@
 apn         = require 'apn'
-http        = require 'http'
+https       = require 'https'
 {database}  = require './database' 
 {conf}      = require './stealth/conf'
 
@@ -34,12 +34,10 @@ androidGcmPost = (payload) ->
             key: conf.gcm.api_key
             'Content-Type': 'application/json'
 
-    req = http.request post_options, (res) ->
+    req = https.request post_options, (res) ->
         res.setEncoding('utf8')
         res.on 'data', (chunk) -> 
             console.log('Response: ' + chunk)
-        res.on 'error', (err) ->
-            console.log('Error: ' + err)
 
     req.write(payload.toString())
     req.end()
