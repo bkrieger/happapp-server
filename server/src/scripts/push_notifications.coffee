@@ -22,7 +22,8 @@ exports.send = (phone_numbers) ->
         if androids.length > 0
             payload =
                 registration_ids: androids
-                data: "Yo what's up"
+                data: 
+                    msg: "Yo what's up"
             androidGcmPost payload
 
 
