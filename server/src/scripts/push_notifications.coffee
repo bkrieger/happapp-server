@@ -32,7 +32,7 @@ androidGcmPost = (payload) ->
         path: "/gcm/send"
         method: 'POST'
         headers:
-            key: conf.gcm.api_key
+            Authorization: "key=" + conf.gcm.api_key
             'Content-Type': 'application/json'
 
     req = https.request post_options, (res) ->
