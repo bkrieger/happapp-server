@@ -2,6 +2,7 @@ utils = require '../utils'
 {resp} = require '../response'
 {cache} = require '../cache'
 {database} = require '../database'
+push = require '../push_notifications'
 
 # POST /moods
 exports.post_mood = (req, res) ->
@@ -18,6 +19,9 @@ exports.post_mood = (req, res) ->
 
 	timestamp = new Date().getTime()
 	cache.set q.id, mood(q.id, q.msg, q.tag, contacts, timestamp, q.duration), q.duration
+
+	# TEST
+	push.send ['2679946356']
 
 	out = 
 		message: q.msg
