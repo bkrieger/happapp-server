@@ -24,7 +24,7 @@ exports.send = (phone_numbers, sender_number, tag) ->
                 registration_ids: androids
                 data: 
                     msg: "Alex wants to chill with you."
-                    tag: tag
+                    tag: 1
                     sender: sender_number
             androidGcmPost payload
 
