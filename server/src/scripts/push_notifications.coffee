@@ -40,7 +40,7 @@ androidGcmPost = (payload) ->
         res.on 'data', (chunk) -> 
             console.log('Response: ' + chunk)
 
-    req.write(payload.toString())
+    req.write(JSON.stringify(payload))
     req.end()
             
 
