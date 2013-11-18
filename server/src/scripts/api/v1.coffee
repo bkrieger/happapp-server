@@ -23,7 +23,7 @@ exports.post_mood = (req, res) ->
 	database.increment_happs()
 
 	# TEST
-	push.send ['2679946356', '5164584981'], q.id, q.tag
+	# push.send ['2679946356', '5164584981'], q.id, q.tag
 
 	out = 
 		message: q.msg
