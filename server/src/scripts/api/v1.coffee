@@ -19,6 +19,8 @@ exports.post_mood = (req, res) ->
 
 	timestamp = new Date().getTime()
 	cache.set q.id, mood(q.id, q.msg, q.tag, contacts, timestamp, q.duration), q.duration
+	
+	database.increment_happs()
 
 	# TEST
 	push.send ['2679946356', '5164584981'], q.id, q.tag
