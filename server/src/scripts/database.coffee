@@ -39,24 +39,21 @@ exports.database =
         connection = @create()
         # First update happs_by_day
         connection.query "SELECT * FROM happs_by_day WHERE day = CURDATE()", (err, result) ->
-            connection.end()
             if err
                 console.log("SQL SELECT error in increment_happs happs_by_day")
                 console.log(err)
             else
                 if result && result.length > 0
                     # We need to update the value in the row
-                    connection.query "UPDATE happs_by_day SET counter=counter+1 WHERE id = #{result[0].id}", (err2, result2) ->
-                        connection.end()
+                    connection.query "UPDATE happs_by_day SET counter=counter+1 WHERE id = #{result[0].id}"
                 else
                     # We need to insert a new row for today
-                    connection.query "INSERT INTO happs_by_day (day,counter) VALUES (CURDATE(), 1)", (err2, result2) ->
-                        connection.end()
-        # Now update happs_within_day
-        now = new Date()
-        period = now.getHours()*4 + Math.floor(now.getMinutes()/15)
-        connection.query "UPDATE happs_within_day SET counter=counter+1 WHERE period = #{period}", (err2, result2) ->
-            connection.end()
+                    connection.query "INSERT INTO happs_by_day (day,counter) VALUES (CURDATE(), 1)"
+            # Now update happs_within_day
+            now = new Date()
+            period = now.getHours()*4 + Math.floor(now.getMinutes()/15)
+            connection.query "UPDATE happs_within_day SET counter=counter+1 WHERE period = #{period}", (err2, result2) ->
+                connection.end()
 
 
 
