@@ -90,7 +90,7 @@ exports.change_friends = (req, res) ->
 
 # POST /feedback
 exports.send_feedback = (req, res) ->
-	utils.email "Happ Feedback", "You have received the following feedback:</br>#{JSON.stringify(req.query)}"
+	utils.email "Happ Feedback", "You have received the following feedback:</br>#{JSON.stringify(req.query, null, 2)}"
 	resp.success res, 'ok'
 
 # POST /registerpush
