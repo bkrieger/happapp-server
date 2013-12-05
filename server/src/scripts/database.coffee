@@ -34,8 +34,10 @@ exports.database =
                         else
                             callback()
                 else
+                    console.log("6")
                     connection.query "INSERT INTO users (phone_number, os, pn_token) VALUES (?,?,?)", phone_number, os, pn_token, (err2, result2) ->
                         connection.end()
+                        console.log("7")
                         if err2
                             console.log("SQL INSERT error in put_device")
                             console.log(err)
