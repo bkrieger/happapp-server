@@ -14,14 +14,29 @@ exports.database =
 
     put_device: (phone_number, os, pn_token, callback) ->
         connection = @create()
-        connection.query "INSERT INTO users (phone_number, os, pn_token) VALUES (?,?,?)", phone_number, os, pn_token, (err, result) ->
-            connection.end()
+        connection.query "SELECT * FROM users WHERE phone_number = ?", phone_number, (err, result) ->
             if err
-                console.log("SQL INSERT Error in put_device")
+                console.log("SQL SELECT error in put_device")
                 console.log(err)
-                callback(err)
             else
-                callback()
+                if result && result.length > 0
+                    connection.query "UPDATE users SET pn_token=?, os=? WHERE phone_number=?", pn_token, os, phone_number, (err2, result2) ->
+                        connection.end()
+                        if err2
+                            console.log("SQL UPDATE error in put_device")
+                            console.log(err)
+                            callback(err)
+                        else
+                            callback()
+                else
+                    connection.query "INSERT INTO users (phone_number, os, pn_token) VALUES (?,?,?)", phone_number, os, pn_token, (err2, result2) ->
+                        connection.end()
+                        if err2
+                            console.log("SQL INSERT error in put_device")
+                            console.log(err)
+                            callback(err)
+                        else
+                            callback()
 
     #phone_numbers is an array of strings representing phone numbers
     get_devices: (phone_numbers, callback) ->
