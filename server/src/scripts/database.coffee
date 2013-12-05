@@ -14,19 +14,14 @@ exports.database =
 
     put_device: (phone_number, os, pn_token, callback) ->
         connection = @create()
-        console.log("!")
         connection.query "SELECT * FROM users WHERE phone_number = ?", phone_number, (err, result) ->
-            console.log("2")
             if err
                 console.log("SQL SELECT error in put_device")
                 console.log(err)
             else
-                console.log("3")
                 if result && result.length > 0
-                    console.log("4")
                     connection.query "UPDATE users SET pn_token=?, os=? WHERE phone_number=?", [pn_token, os, phone_number], (err2, result2) ->
                         connection.end()
-                        console.log("5")
                         if err2
                             console.log("SQL UPDATE error in put_device")
                             console.log(err)
@@ -34,10 +29,8 @@ exports.database =
                         else
                             callback()
                 else
-                    console.log("6")
                     connection.query "INSERT INTO users (phone_number, os, pn_token) VALUES (?,?,?)", [phone_number, os, pn_token], (err2, result2) ->
                         connection.end()
-                        console.log("7")
                         if err2
                             console.log("SQL INSERT error in put_device")
                             console.log(err)
