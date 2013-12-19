@@ -22,8 +22,9 @@ exports.post_mood = (req, res) ->
 	
 	database.increment_happs()
 
-	# TEST
-	# push.send ['2679946356'], q.id, q.tag
+	# Push notifications
+	if q.notify
+		push.send q.notify, q.id, q.tag
 
 	out = 
 		message: q.msg
