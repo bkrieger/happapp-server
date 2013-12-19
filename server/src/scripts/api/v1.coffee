@@ -23,8 +23,8 @@ exports.post_mood = (req, res) ->
 	database.increment_happs()
 
 	# Push notifications
-	if q.notify
-		push.send q.notify, q.id, q.tag
+	if q.notify && q.notify == 1
+		push.send q.n, q.id, q.tag
 
 	out = 
 		message: q.msg
