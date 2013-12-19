@@ -23,6 +23,8 @@ exports.post_mood = (req, res) ->
 	database.increment_happs()
 
 	# Push notifications
+	console.log(q.notify)
+	console.log(q.notify == 1)
 	if q.notify && q.notify == 1
 		push.send q.n, q.id, q.tag
 
