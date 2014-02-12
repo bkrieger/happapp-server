@@ -1,7 +1,7 @@
 
 # home page
 exports.index = (req, res) ->
-    res.render 'home', {title: "Happ"}
+    res.render 'home1', {title: "Happ"}
 
 # support page
 exports.support = (req, res) ->
